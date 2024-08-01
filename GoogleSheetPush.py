@@ -89,13 +89,25 @@ class WebScraping:
                 for title, author, label, enddate, money in zip(titles, authors, labels, enddates, moneys):
                     self.title_list.append(title.get_text().strip())
                     self.author_list.append(author.get_text().strip())
-                    self.money_list.append(money.get_text().strip())
                     self.label_list.append(label.get_text().strip())
+                    
+                    # 日付のフォーマット変換
                     formatted_date = self.format_date(enddate.get_text().strip())
                     self.enddate_list.append(formatted_date)
-                    print(f"{len(self.enddate_list)}件目のデータを取得しました")
+                    
+                    # お金の額の処理
+                    money_text = money.get_text().strip()
+                    # カンマや円記号を取り除く
+                    money_text = money_text.replace(',', '').replace('¥', '')
+                    try:
+                        money_value = float(money_text)
+                    except ValueError:
+                        money_value = 0.0  # 数値変換に失敗した場合は0.0を設定
 
-        # データの総数を表示
+                    self.money_list.append(money_value)
+                    
+                    print(f"{len(self.enddate_list)}件目のデータを取得しました")        # データの総数を表示
+
         print(f"タイトルの数: {len(self.title_list)}")
         print(f"著者の数: {len(self.author_list)}")
         print(f"レーベルの数: {len(self.label_list)}")
