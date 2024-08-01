@@ -8,12 +8,24 @@ Googleスプレットシートにセール情報を記録することができ�
 
 ## 使い方
 
+1. requirements.txtのインストール  
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
 1. `main.py`の実行
 1. セール情報のURLを入力(2ページ、3ページ、となるとき変わるのが&page=2、&page=3のURKです)  
     例: [https://bookwalker.jp/category/2/?order=rank&detail=1&qpri=2&qspp=1&qcsb=1&np=1](https://bookwalker.jp/category/2/?order=rank&detail=1&qpri=2&qspp=1&qcsb=1&np=1)
 1. csvファイルに出力したい場合は、これだけ終了です。
 
 Googleスプレットシートに出力したい場合は、以下の手順を追加してください。
+
+1. requirements.txtのインストール  
+
+    ```bash
+    pip install -r requirements.txt
+    ```
 
 1. GoogleスプレットシートAPI、GoogleDriveAPIの取得、`credentials.json`のダウンロード
 1. ダウンロードしたファイルを、`GoogleSheetPush.py`と同じディレクトリに配置
