@@ -1,0 +1,4 @@
+drive_credentials.json
+sheet_credentials.json
+token.pickle
+*.csv
